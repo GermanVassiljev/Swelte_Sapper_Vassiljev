@@ -1,6 +1,7 @@
 import path from 'path';
 import resolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
+import copy from 'rollup-plugin-copy';
 import commonjs from '@rollup/plugin-commonjs';
 import url from '@rollup/plugin-url';
 import svelte from 'rollup-plugin-svelte';
@@ -23,6 +24,15 @@ export default {
 		input: config.client.input(),
 		output: config.client.output(),
 		plugins: [
+			copy({
+				targets: [{
+					src: 'node_modules/bootstrap/dist/**/*',
+					dest: 'static/vendor/bootstrap'
+				},{
+					src: 'node_modules/jquery/dist/**/*',
+					dest: 'static/vendor/jquery'
+				}]
+			}),
 			replace({
 				preventAssignment: true,
 				values:{
