@@ -22,7 +22,7 @@
 </script>
 
 <svelte:head>
-    <title>Sign up • Conduit</title>
+    <title>Sign up • TARpv21 group</title>
 </svelte:head>
 
 <div class="auth-page">
